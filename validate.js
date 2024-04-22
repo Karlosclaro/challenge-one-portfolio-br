@@ -1,4 +1,3 @@
-//Seu JavaScript de validação aqui
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('.formcontato__form');
     
@@ -14,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Por favor, preencha todos os campos do formulário.');
         } else if (!validateEmail(email)) {
             alert('Por favor, insira um endereço de e-mail válido.');
+        } else if (!validateLetters(nome)) {
+            alert('Por favor, insira somente letras no campo nome.');
         } else {
             // Aqui você pode adicionar a lógica para enviar o formulário
             alert('Formulário enviado com sucesso!');
@@ -24,5 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function validateEmail(email) {
         const re = /\S+@\S+\.\S+/;
         return re.test(email);
+    }
+
+    function validateLetters(text) {
+        const re = /^[a-zA-Z\s]*$/;
+        return re.test(text);
     }
 });
